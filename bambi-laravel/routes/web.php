@@ -1,7 +1,14 @@
 <?php
 
+use App\Models\Basket;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\BasketController;
+use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +20,8 @@ use App\Http\Controllers\ProductController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route for homepage
+Route::get('/', [HomeController::class, 'index'])->name('welcome');
 
 //Route for all products
 Route::get('/shop', [ProductController::class, 'index'])->name('products.index');
@@ -29,6 +34,22 @@ Route::get('/shop/women', [ProductController::class, 'shopWomen'])->name('produc
 //Route for a single product
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('products.show');
 
+//Gets login
+Route::post('login', [LoginController::class, 'store'])->name('signin');
+Route::get('/loginpage', [RegisterController::class, 'index'])->name('login');
+Route::post('/register', [RegisterController::class, 'store'])->name('register');
+Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+
+//Basket routes
+Route::get('/basket/{id}', [BasketController::class, 'index'])->name('basket');
+Route::post('/basket', [BasketController::class, 'store'])->name('basket.store');
+
+//Order routes
+Route::post('/order', [OrderController::class, 'checkout'])->name('checkout');
+
+
+
+
 Route::get('/about', function () {
     return view('about');
 });
@@ -37,11 +58,5 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/basket', function () {
-    return view('basket');
-});
 
-Route::get('/login', function () {
-    return view('login');
-});
 

@@ -1,0 +1,133 @@
+/* Global Attributes */
+
+/* Standardised font and margining across all pages */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
+
+* {
+    margin: 0px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Navigation Bar */
+
+.navbar {
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border: 1px solid #83958C;
+  border-radius: 5px;
+  padding-left: 50px;
+  padding-right: 50px;
+  display: block;
+}
+
+.nav-logo {
+  position: absolute;
+  display: block;
+  margin: auto;
+  overflow: hidden;
+  left: 42%;
+}
+
+.login-btn {
+  right: 0%;
+  background: #B39836;
+  border-radius: 6px;
+  font-weight: bold;
+  border-color: transparent;
+  color: #FFFFFF;
+  padding: 2px 15px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: white;
+}
+
+.li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color:#B39836;
+  text-align: center;
+  padding: 19px 16px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+li a:hover {
+  color:#5e4b05;
+}
+
+.li-right {
+  float: right;
+  margin-top: 10px;
+
+}
+
+/* .footer {
+  background-color: #DADDDC;
+  color: white;
+  position: fixed;
+  display: flex;
+  margin-top: auto;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer img {
+  height: 160px;
+  width: auto;
+  margin: 40px 40px;
+  margin-bottom: 80px;
+  margin-left: 50px;
+}
+
+.footer-content {
+  display: flex;
+}
+
+.footer-content #foot-content-box {
+  width: 1000px;
+  padding: 40px;
+  display: inherit;
+  margin-right: -230px;
+}
+
+.footer .footer-content .footer-links a {
+  color: #B39836;
+  text-decoration: none;
+  font-size: medium;
+  font-weight: bold;
+  padding: 8px;
+  margin-right: 90px;
+  margin-top: 40px;
+  height: 35px;
+}
+
+.footer .footer-content .footer-links .login-foot {
+  padding: 8px;
+  right: 0%;
+  background: #B39836;
+  border-radius: 6px;
+  font-weight: bold;
+  border-color: transparent;
+  color: #FFFFFF;
+  padding: 2px 15px;
+  margin-right: 0px;
+}
+
+.footer .footer-content .footer-links :hover {
+  color: #5e4b05;
+  font-size: medium;
+  transition: 0.2s;
+}  */
+
+
+
