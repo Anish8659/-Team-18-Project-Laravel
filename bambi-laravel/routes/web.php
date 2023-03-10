@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PreviousOrderController;
 use App\Http\Controllers\ProductController;
@@ -21,7 +22,33 @@ use App\Http\Controllers\RegisterController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-//Route for homepage
+// lots of routes that require auth middleware
+
+//POST logout
+Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+
+//Basket routes
+Route::delete('/basket/remove', [BasketController::class, 'destroy'])->name('basket.remove');
+Route::get('/basket/{id}', [BasketController::class, 'index'])->name('basket');
+Route::post('/basket', [BasketController::class, 'store'])->name('basket.store');
+
+//Order routes
+Route::post('/order', [OrderController::class, 'checkout'])->name('checkout');
+Route::get('/orders', [OrderController::class, 'index'])->name('orders');
+
+//Order Detail Routes
+Route::get('/order/{id}', [PreviousOrderController::class, 'index'])->name('previous.orders');
+
+
+//Login route
+Route::post('login', [LoginController::class, 'store'])->name('signin');
+//Gets login page
+Route::get('/loginpage', [RegisterController::class, 'index'])->name('login');
+//Register route
+Route::post('/register', [RegisterController::class, 'store'])->name('register');
+
+
+//Global Routes
 Route::get('/', [HomeController::class, 'index'])->name('welcome');
 
 //Route for all products
@@ -35,27 +62,6 @@ Route::get('/shop/women', [ProductController::class, 'shopWomen'])->name('produc
 //Route for a single product
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('products.show');
 
-//Gets login
-Route::post('login', [LoginController::class, 'store'])->name('signin');
-Route::get('/loginpage', [RegisterController::class, 'index'])->name('login');
-Route::post('/register', [RegisterController::class, 'store'])->name('register');
-Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
-
-//Basket routes
-Route::delete('/basket/remove', [BasketController::class, 'destroy'])->name('basket.remove');
-Route::get('/basket/{id}', [BasketController::class, 'index'])->name('basket');
-Route::post('/basket', [BasketController::class, 'store'])->name('basket.store');
-
-
-
-//Order routes
-Route::post('/order', [OrderController::class, 'checkout'])->name('checkout');
-Route::get('/orders', [OrderController::class, 'index'])->name('orders');
-
-//Order Detail Routes
-Route::get('/order/{id}', [PreviousOrderController::class, 'index'])->name('previous.orders');
-
-
 Route::get('/about', function () {
     return view('about');
 });
@@ -64,5 +70,5 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-
+Route::get('/mail', [MailController::class, 'sendMail']);
 

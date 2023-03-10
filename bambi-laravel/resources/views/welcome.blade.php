@@ -7,6 +7,7 @@
 @section('content')
 
 <div class="homepage">
+    <img src="/Website-Images/hp-background.png" alt="">
     <button type="button" onclick=window.location.href="{{ route('products.index') }}" class="login-btn">SHOP NOW</button>
 </div>
 
@@ -21,7 +22,7 @@
         <!-- Only loop 4 times as we only want to show the first 4 items -->
         @if ($loop->index < 4)
         <div class="card" style="background-color: #FFF6D3; border-radius: 40px; height: 300px;">
-            <img src="/images/{{ $product->product_image}}" alt="Shoes" style="width: 180px; height: 220px; padding-top: 5px; border-radius: 30px;">
+            <img src="/images/{{ $product->product_image}}" alt="Shoes" >
             <h2 class="title" style="padding: 2px;">{{ $product->product_name }}</h2>
             <span class="price">£{{ $product->product_price }}</span>
             <button class="review-button" onclick=window.location.href="{{ route('products.index') }}">Quick View</button>
