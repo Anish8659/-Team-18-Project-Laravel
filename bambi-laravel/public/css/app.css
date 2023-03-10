@@ -23,12 +23,11 @@
 }
 
 .nav-logo {
-  padding-left: 42.5%;
-}
-
-#logged-user {
-  margin-top: 1%;
-  margin-right: 1%;
+  position: absolute;
+  display: block;
+  margin: auto;
+  overflow: hidden;
+  left: 42%;
 }
 
 .login-btn {
@@ -39,10 +38,6 @@
   border-color: transparent;
   color: #FFFFFF;
   padding: 2px 15px;
-}
-
-.login-btn:hover {
-  color:#5e4b05;
 }
 
 ul {

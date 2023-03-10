@@ -25,21 +25,19 @@
 
     <div class="navbar">
         <ul>
-            <div class="subnav">
-                <li><a class="active li" href="{{ route('welcome') }}">Welcome</a></li>
-                <li><a class="active li" href="{{ route('products.index') }}">Shop</a></li>
-                <li><a class="li" href="/about">About Us</a></li>
-                <li><a class="li" href="/contact">Contact Us</a></li>
-                @if (Auth::check())
-                    <li><a class="li" href="{{ route('basket', auth()->user()->id)}}">Basket</a></li>
-                    <li><a class="li" href="{{ route('orders')}}">Orders</a></li>
-                @else
-                    <li><a class="li" href="">Basket</a></li>
-                @endif
-            </div>
             <div class="nav-logo" id="nav-logo">
-                <a class="li" href="{{ route('welcome') }}"><img src="/images/Bambi-Shoes-Logo-Text-only-1.png" alt="" ></a></img>
+                <a href="{{ route('welcome') }}"><img src="/images/Bambi-Shoes-Logo-Text-only-1.png" alt style="width:15vw; height:9vh;"></a></img>
             </div>
+            <li><a class="active li" href="{{ route('welcome') }}">Welcome</a></li>
+            <li><a class="active li" href="{{ route('products.index') }}">Shop</a></li>
+            <li><a class="li" href="/about">About Us</a></li>
+            <li><a class="li" href="/contact">Contact Us</a></li>
+            @if (Auth::check())
+                <li><a class="li" href="{{ route('basket', auth()->user()->id)}}">Basket</a></li>
+                <li><a class="li" href="{{ route('orders')}}">Orders</a></li>
+            @else
+                <li><a class="li" href="">Basket</a></li>
+            @endif
           
             @guest
             <li><button type="submit" class="login-btn li-right"><a class="login-btn" href="{{ route('login') }}">Log In / Register</a></button></li>
@@ -50,7 +48,7 @@
                 @csrf
                 <li><button type="submit" class="login-btn li-right"><a class="login-btn">Log Out</a></button></li>
             </form>
-                <li class="li-right" id="logged-user">Logged in: {{ auth()->user()->first_name }} {{auth()->user()->last_name}}</li> 
+                <li class="li-right">Logged in:{{ auth()->user()->first_name }} {{auth()->user()->last_name}}</li> 
             @endauth
         </ul>
     </div>
