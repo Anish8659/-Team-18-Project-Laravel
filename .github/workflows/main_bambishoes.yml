@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'bambishoes'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E15C396D46334A4D967A8EB525FBCC94 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9CDA6325182F4268B7379A393C2F3179 }}
           package: .
