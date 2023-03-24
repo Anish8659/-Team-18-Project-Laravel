@@ -12,6 +12,7 @@ class PreviousOrderController extends Controller
     public function index($id) {
         //Grab all rows part of the same order
         $orderItems = OrderDetail::where('order_id', $id)->get();
+        $order = Order::where('order_id', $id)->get();
 
         
         //Grab total price of the order
@@ -29,6 +30,8 @@ class PreviousOrderController extends Controller
                 'size' => $item->product_size,
                 'quantity' => $item->quantity,
                 'itemTotal' => $item->quantity * $product->product_price,
+                'order_completion' => $order[0]['order_completion'],
+                'date' => $order[0]['created_at'],
             ]);
         }
         return view('orderdetails', [

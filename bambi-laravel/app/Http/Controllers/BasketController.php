@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Size;
 use App\Models\Basket;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -38,8 +39,21 @@ class BasketController extends Controller
     }
 
     public function store(Request $request) {
+        //Check if a size has been added/chosen
+        $request->validate([
+            'size' => 'required|string'
+        ], [
+            'size.required' => 'Please choose a size.'
+        ]);
         //Get the actual item from the database
         $user_id = auth()->user()->id;
+
+        $stock = Size::where('product_size',$request->size)
+        ->where('product_id', $request->product)->get();
+
+        if($request->quantity > $stock[0]['product_stock']) {
+            return redirect()->back()->with('stock', "There's only ".$stock[0]['product_stock']." of this item left");
+        }
 
         if (DB::table('baskets')->where('user_id', '=', $user_id)
         ->where('product_id', '=', $request->product)

@@ -23,12 +23,21 @@ class ProductController extends Controller
     //Retrieves a single product
     public function show($id) {
         $product = Product::findorFail($id);
+        $sizes = Size::where('product_id', $id)->get();
         //Grabs all sizes and their stock levels for each size
         //$sizes = Size::where('product_id', '=', $id)->get();
         return view('product', [
             'product' => $product,
+            'sizes' => $sizes,
             //'sizes' => $sizes,
         ]);
+    }
+
+    public function listCarouselProducts()
+    {
+        //Method created to get data from the 'product' table and to show them on the products view in carousel.
+        $products = Product::skip(0)->take(12)->get();
+        return $products;
     }
 
     //Gets all mens products and checks if sorting has been requested
