@@ -37,14 +37,26 @@
           
           <div class="overlap-group">
             <div class="search-1 valign-text-middle montserrat-normal-black-24px">
-              <form action="{{route('search')}}">
-                <input type="Search" name="search" id="search" placeholder="Search by Brand or Name">
+            <form action="{{route('search')}}" class="search-bar">
+                <input type="Search" name="search" id="search" placeholder="Search">
                 <!-- <button type="submit"><img src="/Website-Images/magnifying-glass-icon.png"></button> -->
-              </form>
+              <!-- </form> -->
             </div>
             <div class="overlap-group1">
-              <img class="icon-search" src="/Website-Images/magnifying-glass-icon.png" alt="icon-search" />
+              <button type="submit"><img src="/Website-Images/magnifying-glass-icon.png"></button>
+              <!-- <img class="icon-search" src="/Website-Images/magnifying-glass-icon.png" alt="icon-search" /> -->
+            </form>
             </div>
+          </div>
+
+          <div class="sort-by">
+            <label for="sort">Sort By &nbsp;</label>
+
+            <select name="sort" id="sort">
+              <option value="default">Default</option>
+              <option value="high-to-low">Price: High to Low</option>
+              <option value="low-to-high">Price: Low to High</option>
+            </select>
           </div>
 
           <div class="women montserrat-bold-black-24px">WOMEN</div>
@@ -98,10 +110,11 @@
       </div>
 
       <div class="credit-hero">
-        <p class="spread-the-cost-with">
-          Spread the cost with up to 4 years interest free credit* Subject to T&amp;Cs
-        </p>
         <p class="shop-shoes-from-14">
+        Spread the cost with up to 4 years interest free credit*
+        <br></br>
+        Subject to T&amp;Cs
+        <br></br>
           Shop shoes from £14.07 per month*. 0% finance is available on all purchases over £99.
         </p>
       </div>
